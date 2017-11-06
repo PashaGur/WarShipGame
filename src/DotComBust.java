@@ -39,10 +39,10 @@ public class DotComBust {
     } // Конец метода startPlaying
 
     private void checkUserGuess(String userGuess) {
-        numOfGuesses++;
+        numOfGuesses++; // При каждом ходе увеличиваем количество попыток
         String result = "Мимо"; // Промах по умолчанию, если не доказано обратного
         for (DotCom dotComToTest : dotComsList) { // Проходимся по объектам DotCom
-            result = dotComToTest.checkYourself(userGuess);
+            result = dotComToTest.checkYourself(userGuess); // Просим проверить, вдруг пользователь попал или потопил сайт.
             if (result.equals("Попал")) {
                 break;
             }

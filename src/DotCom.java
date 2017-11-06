@@ -4,7 +4,9 @@ public class DotCom {
     private ArrayList<String> locationCells;  // Лист с ячейками описывающими местоположение
     private String name; // Имя сайта
 
-    public void setLocationCells(ArrayList<String> loc) {  // Сеттер, который обновляет местоположение сайта
+    public void setLocationCells(ArrayList<String> loc) {  /* Сеттер, который обновляет местоположение сайта
+        (случайный адрес, который выбирается методом placeDotCom() из класса GameHelper
+        */
         locationCells = loc;
     }
 
@@ -14,10 +16,10 @@ public class DotCom {
 
     public String checkYourself(String userInput) {
         String result = "Мимо";
-        int index = locationCells.indexOf(userInput);
+        int index = locationCells.indexOf(userInput); // Если ход совпадет с одним из элементов в ArrayList, то метод indexOf() вернет его
         if (index >= 0) {
-            locationCells.remove(index);
-            if (locationCells.isEmpty()) {
+            locationCells.remove(index); // При попадании удаляет элемент
+            if (locationCells.isEmpty()) { // Проверка, все ли поля "сайта" потоплены.
                 result = "Потопил";
                 System.out.println("Ой, вы потопили " + name + " :( ");
             } else {
